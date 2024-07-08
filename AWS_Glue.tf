@@ -7,7 +7,7 @@ resource "aws_glue_crawler" "madhatter-crawler" {
   role          = aws_iam_role.madhatter-glue_role.arn
   database_name = aws_glue_catalog_database.madhatter-database.name
   s3_target {
-    path = "s3://${aws_s3_bucket.data_lake.bucket}/"
+    path = "s3://${aws_s3_bucket.madhatter_data_lake.bucket}/"
   }
 }
 

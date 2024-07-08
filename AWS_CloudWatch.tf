@@ -19,7 +19,7 @@ resource "aws_cloudwatch_metric_alarm" "madhatter-cpu_alarm" {
   threshold           = "80"
 
   dimensions = {
-    DBInstanceIdentifier = aws_rds_instance.db.id
+    DBInstanceIdentifier = aws_db_instance.db.id
   }
 
   alarm_actions = [

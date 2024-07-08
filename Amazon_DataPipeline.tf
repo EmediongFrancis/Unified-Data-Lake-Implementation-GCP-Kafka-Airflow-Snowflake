@@ -1,20 +1,18 @@
-resource "aws_data_pipeline_pipeline" "madhatter-pipeline" {
-  name                = "madhatter_data_pipeline"
-  unique_id           = "madhatter-data-pipeline"
-  description         = "A pipeline to automate MadHatter's data movement."
-  pipeline_definition = <<EOF
-{
-  "objects": [
-    {
-      "id": "Default",
-      "name": "Default",
-      "fields": [
-        { "key": "scheduleType", "stringValue": "cron" },
-        { "key": "failureAndRerunMode", "stringValue": "CASCADE" },
-        { "key": "pipelineLogUri", "stringValue": "s3://${aws_s3_bucket.madhatter_data_lake.bucket}/logs" }
-      ]
-    }
-  ]
+resource "aws_datapipeline_pipeline" "madhatter-pipeline" {
+  name        = "madhatter_data_pipeline"
+  description = "A pipeline to automate MadHatter's data movement."
 }
-EOF
+
+resource "aws_datapipeline_pipeline_definition" "my_data_pipeline" {
+  pipeline_id = "madhatter-data-pipeline-id"
+
+  pipeline_object {
+    field {
+      key = "Company"
+
+    }
+    id   = "madhatter-object"
+    name = aws_s3_bucket.madhatter_data_lake.arn
+
+  }
 }
