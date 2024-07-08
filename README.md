@@ -5,3 +5,12 @@ In the age of big data, businesses often find themselves dealing with disparate 
 ## Sample Scenario - MadHatter Corp.
 
 ## AWS Tools Used - DeepDive
+![Unified Data Lake Architecture](assets/Pipeline-1.jpg)
+
+## Usage
+
+### Requirements
+
+### Steps
+
+## References
